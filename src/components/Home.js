@@ -17,7 +17,6 @@ export const Home = () => {
       );
 
       const data = await response.json();
-      console.log({ data });
       setApiError("");
       setIsLoading(false);
 
