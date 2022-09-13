@@ -13,7 +13,7 @@ export const Home = () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow"
+        `https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow&key=${process.env.REACT_APP_STACKOVERFLOW_KEY}`
       );
 
       const data = await response.json();

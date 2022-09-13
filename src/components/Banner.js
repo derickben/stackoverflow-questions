@@ -1,7 +1,6 @@
 import "./Banner.css";
 
 const Banner = (props) => {
-  console.log({ disabled: props.isDisabled });
   return (
     <div className="container__banner">
       <h1 className="title">

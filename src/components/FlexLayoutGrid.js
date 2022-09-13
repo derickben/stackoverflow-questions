@@ -1,13 +1,7 @@
-import { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import { DataGrid } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
 
 export default function FlexLayoutGrid({ questions = [] }) {
-  useEffect(() => {
-    console.log({ questions });
-  }, [questions.length]);
-
   return (
     <div style={{ width: "100%" }}>
       <div style={{ display: "flex", height: "100%" }}>
