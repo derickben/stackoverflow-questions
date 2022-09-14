@@ -20,6 +20,8 @@ export const Home = () => {
       setApiError("");
       setIsLoading(false);
 
+      console.log({ data });
+
       return data.items;
     } catch (error) {
       setIsLoading(false);

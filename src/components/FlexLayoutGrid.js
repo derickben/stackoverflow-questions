@@ -1,4 +1,5 @@
 import Avatar from "@mui/material/Avatar";
+import Link from "@mui/material/Link";
 import { DataGrid } from "@mui/x-data-grid";
 
 export default function FlexLayoutGrid({ questions = [] }) {
@@ -23,16 +24,22 @@ export default function FlexLayoutGrid({ questions = [] }) {
                 field: "Avatar",
                 width: 80,
                 renderCell: (params) => {
-                  return (
-                    <>
-                      <Avatar src={params.value.avatar} />
-                    </>
-                  );
+                  return <Avatar src={params.value.avatar} />;
                 },
               },
               { field: "Username", width: 200 },
               { field: "Title", width: 350 },
-              { field: "Link", width: 350 },
+              {
+                field: "Link",
+                width: 350,
+                renderCell: (params) => {
+                  return (
+                    <Link href={params.value.link} target="_blank">
+                      {params.value.link}
+                    </Link>
+                  );
+                },
+              },
               { field: "Answers", headerName: "No of Answers", width: 130 },
             ]}
             rows={questions.map((item) => {
@@ -43,7 +50,7 @@ export default function FlexLayoutGrid({ questions = [] }) {
                 },
                 Username: item["owner"]["display_name"],
                 Title: item["title"],
-                Link: item["link"],
+                Link: { link: item["link"] },
                 Answers: item["answer_count"],
               };
             })}
