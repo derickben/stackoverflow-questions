@@ -32,7 +32,7 @@ export const Home = () => {
     } catch (error) {
       setIsLoading(false);
       console.log({ error });
-      setApiError("Network!");
+      setApiError("Network Error!");
     }
   };
 
