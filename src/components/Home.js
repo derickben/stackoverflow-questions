@@ -17,22 +17,30 @@ export const Home = () => {
       );
 
       const data = await response.json();
-      setApiError("");
+
       setIsLoading(false);
 
-      console.log({ data });
-
-      return data.items;
+      if (data.items) {
+        setApiError("");
+        console.log({ data });
+        return data.items;
+      } else {
+        setApiError("Network Error");
+        console.log({ data });
+        return [];
+      }
     } catch (error) {
       setIsLoading(false);
       console.log({ error });
-      setApiError("Unable to retrieve Questions!");
+      setApiError("Network!");
     }
   };
 
   const handleOnClick = async () => {
     const result = await getQuestions();
-    setAllQuestions(result);
+    if (Array.isArray(result)) {
+      setAllQuestions(result);
+    }
   };
 
   const handleReset = () => {
