@@ -10,3 +10,5 @@ jobs:
         run: echo "Hello World"
       - name: Print goodbye
         run: echo "Goodbye"
+      - name: Version
+        run: npm version prerelease --preid=alpha -m "[PRE-RELEASE] %s"
