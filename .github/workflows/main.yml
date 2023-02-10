@@ -16,3 +16,5 @@ jobs:
       - run: git config --global user.email 'benedictuyioghosa@gmail.com'
       - name: Version
         run: npm version prerelease --preid=alpha -m "[PRE-RELEASE] %s"
+      - name: Push tag
+        run: git push --follow-tags
