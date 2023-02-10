@@ -12,5 +12,7 @@ jobs:
         run: echo "Goodbye"
       - name: Get code
         uses: actions/checkout@v2
+      - run: git config --global user.name 'derickben'
+      - run: git config --global user.email 'benedictuyioghosa@gmail.com'
       - name: Version
         run: npm version prerelease --preid=alpha -m "[PRE-RELEASE] %s"
